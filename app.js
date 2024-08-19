@@ -1,6 +1,5 @@
 const express = require('express');
 
-
 const app = express();
 
 app.use(express.json());
@@ -24,7 +23,7 @@ console.log(wordCounts);
 //Replace all commmon words
 const paragraph = fs.readFileSync('./uploads/Employee Empowerment.md',
     'utf8');
-
+//Console modified text
 console.log(paragraph.replaceAll('employee', 'fooemployeebar'));
 
 //Multer config
@@ -40,15 +39,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Routes
-app.get('/', (req, res) => {
-    res.send('Hello Worldddddd!');
-});
-
-app.post('/api/upload', upload.single('file'), (req, res) => {
-    res.json(req.file);
-    console.log(req.file);
-    console.log(req.body);
 app.post('/api/upload', upload.single('file'), (req, res) => {
     res.json(req.file);
     console.log(req.file);
@@ -57,7 +47,6 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
 
 const port = process.env.PORT || 3000;
 
-// Start server
 // Start server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
