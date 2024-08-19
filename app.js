@@ -1,34 +1,36 @@
 const express = require('express');
-const cors = require('cors');
-
-const mongoose = require('mongoose');
 
 const app = express();
 
-app.use(cors());
 app.use(express.json());
 
-//MongoDB connection
-mongoose.connect('mongodb://localhost:27017/textfiles')
+//Filereader
+const fs = require('fs');
+const result = fs.readFileSync(
+    './uploads/Employee Empowerment.md',
+    'utf8'
+);
+console.log(result);
 
-const TextsSchema = new mongoose.Schema({
-    filename: String
-});
+//Find most commmon word
+let wordCounts = { };
+let words = './uploads/Employee Empowerment.md'.split(/\b/);
 
-const TextsModel = new mongoose.model("_id", TextsSchema);
+for(let i = 0; i < words.length; i++)
+    wordCounts["_" + words[i]] = (wordCounts["_" + words[i]] || 0) + 1;
+console.log(wordCounts);
 
-app.get('/texts', (req, res) => {
-    TextsModel.find({}).then(function(_id) {
-        res.json(_id)
-    }).catch(function(err) {
-        console.log(err)
-    })
-});
+//Replace all commmon words
+const paragraph = fs.readFileSync('./uploads/Employee Empowerment.md',
+    'utf8');
+
+console.log(paragraph.replaceAll('employee', 'fooemployeebar'));
 
 
 
 //Multer config
 const multer = require('multer');
+const { file } = require('server/reply');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads/');
