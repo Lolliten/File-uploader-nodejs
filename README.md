@@ -9,4 +9,5 @@ Start 10:45
 - Skapa nytt MongoDB cluster
 - Skapar en app.js, lägger in lite kod och endpoints
 - Testar med Postman extension
-- 
+- Fixar storage och filnamngivning
+
