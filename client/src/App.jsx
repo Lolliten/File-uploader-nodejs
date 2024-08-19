@@ -15,10 +15,11 @@ function App() {
   return (
     <>
      
-     <input type="file" onChange={() => setFile(e.target.files[0])} />
+     <input type="file" accept='.pdf, .rtf, .docx, .doc, .odt' required onChange={() => setFile(e.target.files[0])} />
        <div> 
         <button type="button" onClick={upload}>Upload</button>
       </div>
+      
     </>
   )
 }
