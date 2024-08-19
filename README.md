@@ -13,7 +13,9 @@ Start 10:45
 - Testar med Postman extension
 - Fixar storage och filnamngivning
 
-- Skapar nytt React projekt och kopplar ihop med NodeJS
+- Skapar nytt React projekt, installerar cors både front och back
+- Installer axios
+- Kopplar ihop med NodeJS
 
-- Kod för extrahera mest använda ordet i filen och lägga till foo och bar runtom de ordet.
+- Nodejs skapa funktioner för extrahera mest använda ordet i filen och lägga till foo och bar runtom de ordet.
 
