@@ -1,5 +1,6 @@
 const express = require('express');
 
+
 const app = express();
 
 app.use(express.json());
@@ -48,10 +49,15 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
     res.json(req.file);
     console.log(req.file);
     console.log(req.body);
+app.post('/api/upload', upload.single('file'), (req, res) => {
+    res.json(req.file);
+    console.log(req.file);
+    console.log(req.body);
 });
 
 const port = process.env.PORT || 3000;
 
+// Start server
 // Start server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
